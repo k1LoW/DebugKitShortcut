@@ -1,4 +1,4 @@
 # DebugKit Shortcut Panel
 
-# License
+## License
 MIT License
