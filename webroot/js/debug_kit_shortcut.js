@@ -62,17 +62,8 @@ shortcut.add("Shift+V",function() {
                  'target':document
              });
 
-shortcut.add("Shift+P",function() {
-                 debugKitMaximize();
-             },{
-                 'type':'keydown',
-                 'propagate':true,
-                 'disable_in_input':true,
-                 'target':document
-             });
-
-shortcut.add("Shift+M",function() {
-                 debugKitMinimize();
+shortcut.add("T",function() {
+                 debugKitToggle();
              },{
                  'type':'keydown',
                  'propagate':true,
@@ -96,23 +87,11 @@ function debugKitShortcut(id) {
     }
 }
 
-function debugKitMaximize() {
+function debugKitToggle() {
     for (id in DEBUGKIT.toolbar.panels) {
         if (DEBUGKIT.toolbar.panels[id].active) {
             var panel = DEBUGKIT.toolbar.panels[id];
-            var element = panel.element.getElementsByClassName('panel-maximize')[0];
-            var clickEvent = window.document.createEvent("MouseEvent");
-            clickEvent.initEvent("click", false, true);
-            element.dispatchEvent(clickEvent);
-        }
-    }
-}
-
-function debugKitMinimize() {
-    for (id in DEBUGKIT.toolbar.panels) {
-        if (DEBUGKIT.toolbar.panels[id].active) {
-            var panel = DEBUGKIT.toolbar.panels[id];
-            var element = panel.element.getElementsByClassName('panel-minimize')[0];
+            var element = panel.element.getElementsByClassName('panel-toggle')[0];
             var clickEvent = window.document.createEvent("MouseEvent");
             clickEvent.initEvent("click", false, true);
             element.dispatchEvent(clickEvent);
